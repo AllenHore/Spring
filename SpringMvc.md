@@ -97,7 +97,29 @@
      -->
     <url-pattern>/</url-pattern>
 	</servlet-mapping>
-## 四、在resources配置springMvc.xml文件（可自定义）
+
+## 四、解决post请求乱码问题
+	
+- 在servlet前添加filter
+
+		<!--解决post编码格式问题-->
+		<filter>
+		<filter-name>characterEncodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+		  <param-name>encoding</param-name>
+		  <param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
+		  <param-name>forceEncoding</param-name>
+		  <param-value>true</param-value>
+		</init-param>
+		</filter>
+		<filter-mapping>
+		<filter-name>characterEncodingFilter</filter-name>
+		<url-pattern>/</url-pattern>
+		</filter-mapping>
+## 五、在resources配置springMvc.xml文件（可自定义）
 
 	<!--开启自动扫描包-->
     <context:component-scan base-package="com.hore.demo.controller"/>
@@ -111,6 +133,7 @@
         <property name="prefix" value="/WEB-INF/page/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
+
 
 
 
