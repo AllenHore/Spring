@@ -103,10 +103,8 @@
     <context:component-scan base-package="com.hore.demo.controller"/>
     <!--开始springMVC注解-->
     <mvc:annotation-driven></mvc:annotation-driven>
-     <!-- HandlerMapping -->
-    <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"></bean>
-    <!-- HandlerAdapter -->
-    <bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"></bean>
+     <!-- SpringMVC handler-->
+    <mvc:default-servlet-handler/>
     <!--配置ViewResolver-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"></property>
